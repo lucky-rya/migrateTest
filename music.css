@@ -1,0 +1,251 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body{
+background-color: papayawhip
+}
+@font-face
+{
+    font-family: myFirstFont;
+    src: url(../font/繁星糖果.ttf);
+}
+ 
+@font-face {
+  font-family: 'iconfont';
+  src: url('../font/iconfont.eot');
+  src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+      url('../font/iconfont.woff2') format('woff2'),
+      url('../font/iconfont.woff') format('woff'),
+      url('../font/iconfont.ttf') format('truetype'),
+      url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a{
+	text-decoration: none;
+	color: lightblue;
+}
+.musicbox {
+	margin: 20px auto;
+	width: 800px;
+	height: 540px;
+	background-color: rgba(241,243,244,0.5);
+	position: relative;
+	padding-bottom: 30px;
+}
+header{
+	width: 100%;
+	height: 40px;
+	background-color: #87CEEB;
+	line-height: 40px;
+	position: relative;
+	padding:0  10px;
+	box-sizing: border-box;
+	
+}
+#logo{
+	display: inline-block;
+	color: white;
+	font-weight: 100;
+	font-size: 20px;
+	font-style: oblique;
+	font-family: myFirstFont;
+}
+input{
+	border: none;
+	height: 25px;
+	border-radius: 15px;
+	padding-left: 10px;
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	top:8px;
+	color: #666;
+}
+.main{
+	width: 100%;
+	height: 100%;
+	/* background-color: rgba(255,255,255,0.5); */
+	display: flex;
+}
+/* 实现三栏布局 */
+.song-list{
+	flex:1;
+	height: 100%;
+	border-right: 1px solid #CCC;
+	overflow-y: auto;
+	overflow-x: hidden;
+	white-space:nowrap;
+	font-size: 12px;
+	box-sizing: border-box;
+}
+.song-list ul li{
+   padding: 0px;
+   position: relative;
+   align-items: center;
+   box-sizing: border-box;
+   white-space: nowrap;
+   display: flex;
+   height: 30px;
+  
+     
+}
+.song-list li:nth-child(odd) {
+  background-color: rgba(240, 240, 240, 0.7);
+}
+.song-list ul li i{
+	/* 行内标签要设置宽度需要设置display属性，设置宽度，因为MV播放图标可能会遮住文字 */
+	display: inline-block;
+	width: 140px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+ .play::before {
+ 	    content: '\e630';/* &#xe630这是直接放在标签中的内容可以显示 */
+ 		font-size: 18px;
+		
+ }
+.iconMV::before {
+  content: "\e62c";
+  color: #87CEEB;
+   position: absolute;
+   right: 2px;
+   top:50%;
+   transform: translateY(-50%);
+  cursor: pointer;
+}
+/* 背景图片容器*/
+.bcimage{
+	height: 100%;
+	 border-right: 1px solid #ccc;
+	flex: 2;
+}
+/* 中间的圆形 */
+#bgimg{
+	/* 让图片在圆形中间 */
+	 margin: 50px auto;
+	width: 150px;
+	height:150px;
+	border-radius: 150px;
+	background-color: transparent;
+}
+#bgrorate{
+	/* 让圆形在父容器中居中 */
+	margin: 125px auto;
+	width: 250px;
+	height:250px;
+	border-radius:250px;
+	background-color: #ADD8E6;
+	/* 让图片在圆形中间 */
+	text-align: center;
+	line-height: 250px;
+}
+/* 设置旋转参数 */
+.playing{
+	animation: rotate 30s linear infinite;
+}
+/* 旋转 */
+@keyframes rotate{from{transform: rotate(0deg)}
+    to{transform: rotate(359deg)}
+}
+/* 评论列表 */
+.comment{
+	flex: 1;
+	height: 100%;
+	/* 设置padding后就要设置 border-box，否则样式会混乱*/
+	box-sizing: border-box;
+	padding-top: 25px;
+}
+
+.comment h5{
+	position:absolute;
+	top:0;
+	margin-top:40px ;
+	background-color:rgba(241,243,244,0.5);
+	width: 200px;
+}
+/* 设置为y为over才能显示滚动条 */
+.commentlist{
+	overflow-y: auto;
+	overflow-x: hidden;
+	width: 200px;
+	height: 100%;
+} 
+.comment ul li::-webkit-scrollbar {
+  display: none;
+}
+.comment ul li{
+	 width: 100%;
+	 list-style: none;
+	 height: 100%;
+}
+/* 头像 */
+#userlogo{
+	width: 40px;
+	height: 40px;
+	border-radius: 40px;
+	float: left;
+	margin:5px 10px 0 5px;
+	
+}
+/* 用户名 */
+#user{
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 5px;
+	
+	 
+}
+/* 评论内容 */
+#content{
+	font-size: 10px;
+	/* 是这个元素绝缘，不会受到周围浮动元素的影响 */
+	overflow: hidden;
+	color: #666666;
+	padding: 10px 0;
+}
+
+ 
+/* 音乐播放组件 */ 
+footer{
+	width: 100%;
+	height: 30px;
+	background-color: #fff;
+	line-height: 25px;
+	z-index: 980;
+}
+ 
+audio{
+	width: 100%;
+	height: 12px;
+	font-size: 10px;
+}
+/* 视频播放盒子设置 */
+.mvplay{
+	background-color: rgba(39,40,34,1);
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top:0;
+	z-index: 990;
+	left: 50%;
+	transform: translateX(-50%);
+}
+/* 视频模块 */
+video{
+	position: fixed;
+	width: 800px;
+	height: 546px;
+	left: 50%;
+	top: 50%;
+	margin-top: -273px;
+	transform: translateX(-50%);
+	z-index: 998;
+}
