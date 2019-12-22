@@ -1,0 +1,23 @@
+{
+  "id": "1489765",
+  "name": "练习",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "705706",
+      "name": "播放",
+      "font_class": "bofang",
+      "unicode": "e630",
+      "unicode_decimal": 58928
+    },
+    {
+      "icon_id": "8371708",
+      "name": "MV",
+      "font_class": "MV",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="../js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="../js/iscroll.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/music.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/music.css"/>
+	</head>
+	<body>
+		<div class="musicbox">
+			<header>
+			 <span id="logo">悦听</span>
+			 <input type="text" placeholder="输入歌手" @keyup.enter="search" v-model="query">
+			</header>
+			<div class="main">
+				<section class="song-list">
+					<ul>
+						<li v-for="item in songlist">
+						<a href="#" class="iconfont play" @click="playmusic(item.id)"></a>
+						<i>{{item.name}}</i>
+						 <span class="iconfont iconMV" v-show="item.mvid" @click="playMv(item.mvid)">
+						 </span>
+						</li>
+					</ul>
+				</section>
+				<section class="bcimage">
+					<div id="bgrorate" :class="{playing:isPlay}" >
+					<img :src="imgsrc"   id="bgimg" v-show="isPlay" style="display: none;">
+					</div>
+				</section>
+				<section class="comment">
+					<h5>热门评论</h5>
+					
+					<div class="commentlist">
+						<ul>
+							<li v-for="item in commentinfo">
+								<img  id="userlogo" :src="item.user.avatarUrl" >
+								<span id="user">{{item.user.nickname}}</span>
+								<p id="content">{{item.content}}</p>
+							</li>
+						</ul>
+					</div>
+				</section>
+				
+			</div>
+			<footer>
+			<audio :src="musicurl" controls="controls" autoplay="autoplay" @play="play" @pause="pause">
+				当前浏览器不支持audio
+			</audio>
+			</footer>
+			<div class="mvplay" v-show="isShow" style="display: none;" @click.self="hide">
+			 <video :src="mvsrc" controls="controls" v-show="isShow"  ></video>	
+						 
+			</div>
+		</div>
+		
+	</body>
+</html>
